@@ -16,7 +16,16 @@
   <a href="teaching.html">Teaching</a>
   <a class="focus" href="cv.html">CV</a>
 </div>
-<embed src="media/CV.pdf" type="application/pdf" width="100%" height="1000px" />
+<embed class="nocache" type="application/pdf" width="100%" height="1000px" />
+
+<script>
+  const embed = document.querySelector('.nocache');
+    if (embed) {
+        const url = 'media/CV.pdf';
+        const timestamp = new Date().getTime(); //Trying to prevent caching of PDF so that after an update the latest version is fetched
+        embed.src = `${url}?nocache=${timestamp}`;
+    }
+</script>
 </div>
 </body>
 </html>
